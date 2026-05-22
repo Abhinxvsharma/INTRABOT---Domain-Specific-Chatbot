@@ -1,14 +1,15 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=32&duration=2800&pause=2000&color=378ADD&center=true&vCenter=true&width=940&lines=🤖+IntraBot+–+Domain+Specific+Chatbot;Offline+AI+%7C+RAG+Architecture+%7C+Zero+Hallucinations;Your+Documents.+Your+Data.+Your+Machine." alt="IntraBot" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a2e,50:16213e,100:0f3460&height=200&section=header&text=IntraBot&fontSize=80&fontColor=378ADD&animation=fadeIn&fontAlignY=38&desc=Domain%20Specific%20Chatbot&descAlignY=60&descColor=85B7EB&descSize=22"/>
 
 <br/>
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![LangChain](https://img.shields.io/badge/LangChain-RAG%20Pipeline-1C3C3C?style=for-the-badge)](https://langchain.com)
-[![FAISS](https://img.shields.io/badge/FAISS-Vector%20DB-4285F4?style=for-the-badge)](https://faiss.ai)
-[![Ollama](https://img.shields.io/badge/Ollama-Local%20LLM-black?style=for-the-badge)](https://ollama.ai)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge)](https://langchain.com)
+[![FAISS](https://img.shields.io/badge/FAISS-4285F4?style=for-the-badge)](https://faiss.ai)
+[![Ollama](https://img.shields.io/badge/Ollama-black?style=for-the-badge)](https://ollama.ai)
+[![NiceGUI](https://img.shields.io/badge/NiceGUI-FF6B6B?style=for-the-badge)](https://nicegui.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 [![100% Offline](https://img.shields.io/badge/100%25-Offline-success?style=for-the-badge)]()
 
@@ -20,7 +21,8 @@
 
 <br/>
 
-[🚀 Quick Start](#-getting-started) &nbsp;·&nbsp; [📸 Screenshots](#-screenshots) &nbsp;·&nbsp; [🏗️ Architecture](#%EF%B8%8F-architecture) &nbsp;·&nbsp; [⚙️ Config](#%EF%B8%8F-configuration) &nbsp;·&nbsp; [🔌 API Docs](#-api-reference)
+[![GitHub stars](https://img.shields.io/github/stars/Abhinxvsharma/INTRABOT---Domain-Specific-Chatbot?style=social)](https://github.com/Abhinxvsharma/INTRABOT---Domain-Specific-Chatbot/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Abhinxvsharma/INTRABOT---Domain-Specific-Chatbot?style=social)](https://github.com/Abhinxvsharma/INTRABOT---Domain-Specific-Chatbot/network)
 
 </div>
 
@@ -30,19 +32,19 @@
 
 <div align="center">
 
-### 💬 Chat Interface — Ask anything from your documents
+### 💬 Chat Interface
 
 ![IntraBot Chat Interface](screenshot_chat.png)
 
-*Query your HR documents in natural language — every answer is grounded strictly in your uploaded files*
+*Query your HR documents in natural language — every answer grounded strictly in your uploaded files*
 
 <br/>
 
-### 📁 Knowledge Base — Manage your documents
+### 📁 Knowledge Base Sidebar
 
 ![Knowledge Base Sidebar](screenshot_sidebar.png)
 
-*Upload PDFs, DOCX, TXT, CSV files — switch between documents or query all at once*
+*Upload PDFs, DOCX, TXT, CSV — switch between documents or query all at once*
 
 </div>
 
@@ -50,13 +52,13 @@
 
 ## 🧠 What is IntraBot?
 
-**IntraBot** is a **Retrieval-Augmented Generation (RAG)** powered chatbot built for enterprise and organizational use. It lets you upload internal documents — HR policies, employee handbooks, leave guides, onboarding manuals — and ask questions in plain English, getting **precise, grounded answers without sending your data to any cloud service**.
+**IntraBot** is a **Retrieval-Augmented Generation (RAG)** powered chatbot built for enterprise use. Upload internal documents — HR policies, employee handbooks, leave guides — and ask questions in plain English, getting **precise, grounded answers without sending your data to any cloud service**.
 
 ```
 User asks:  "How many sick leaves am I entitled to?"
 
 IntraBot:   📂 Searches YOUR uploaded HR docs
-            ✂️  Finds top-3 most relevant chunks via FAISS
+            ✂️  Finds top-3 relevant chunks via FAISS
             📝 Builds prompt with context + question
             🤖 Local LLM generates grounded answer
             ✅ Returns accurate, document-based response
@@ -64,14 +66,13 @@ IntraBot:   📂 Searches YOUR uploaded HR docs
 
 ### Why IntraBot over ChatGPT / cloud AI?
 
-| Feature | ❌ Cloud AI (ChatGPT etc.) | ✅ IntraBot |
+| Feature | ❌ Cloud AI | ✅ IntraBot |
 |---|---|---|
 | Data Privacy | Sent to external servers | Stays on your machine |
 | Hallucinations | Makes up answers | Grounded in your docs only |
 | Internet Needed | Yes, always | 100% Offline |
 | Cost | Subscription / API fees | Free & Open Source |
 | Domain Accuracy | Generic responses | From your actual policies |
-| Setup | Instant | One-time local setup |
 
 ---
 
@@ -92,8 +93,6 @@ IntraBot:   📂 Searches YOUR uploaded HR docs
 
 ## 🏗️ Architecture
 
-### Complete System Flow
-
 ```
 ╔══════════════════════════════════════════════════════════════════╗
 ║                 📥 DOCUMENT INGESTION PIPELINE                    ║
@@ -106,11 +105,11 @@ IntraBot:   📂 Searches YOUR uploaded HR docs
 ╔══════════════════════════════════════════════════════════════════╗
 ║                   ❓ QUERY ANSWERING PIPELINE                     ║
 ╠══════════════════════════════════════════════════════════════════╣
-║  ❓ User Query → 🔢 Embed Query → 🔍 FAISS Similarity Search      ║
-║       ↓                                    ↓                     ║
-║  ⚡ Cache Hit? ←──── 📋 Top-K Chunks ────→ 📝 Build RAG Prompt    ║
-║       ↓ (instant)                          ↓                     ║
-║  💬 Return Answer ←───────── 🤖 Ollama (TinyLlama / Phi-3)       ║
+║  ❓ Query → 🔢 Embed → 🔍 FAISS Search → 📋 Top-K Chunks         ║
+║       ↓                                          ↓               ║
+║  ⚡ Cache? ←──────── 📝 Build RAG Prompt ────────                 ║
+║       ↓                        ↓                                 ║
+║  💬 Answer ←────── 🤖 Ollama (TinyLlama / Phi-3)                 ║
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
@@ -133,7 +132,6 @@ intrabot/
 ├── 📂 data/                     ← Uploaded documents  [gitignored]
 ├── 📂 vectorstore/              ← FAISS index files   [gitignored]
 ├── 📂 cache/                    ← Cached responses    [gitignored]
-├── 📂 myenv/                    ← Virtual environment [gitignored]
 │
 ├── requirements.txt
 ├── .gitignore
@@ -146,15 +144,14 @@ intrabot/
 
 | Layer | Technology | Purpose |
 |---|---|---|
-| **Language** | Python 3.10+ | Core backend implementation |
-| **Backend API** | FastAPI + Uvicorn | REST endpoints, async handling |
+| **Language** | Python 3.10+ | Core backend |
+| **Backend API** | FastAPI + Uvicorn | REST endpoints |
 | **Frontend UI** | NiceGUI | Python-first web interface |
-| **RAG Orchestration** | LangChain | Doc loaders, chunking, retrieval |
+| **RAG Pipeline** | LangChain | Doc loaders, chunking, retrieval |
 | **Embeddings** | Sentence Transformers `all-MiniLM-L6-v2` | 384-dim semantic vectors |
-| **Vector Database** | FAISS (Facebook AI) | Local vector similarity search |
-| **LLM Runtime** | Ollama | Local model inference engine |
-| **Language Models** | TinyLlama 1.1B · Phi-3 3.8B | Answer generation |
-| **Doc Parsers** | PyPDF · Docx2txt · TextLoader · CSVLoader | Multi-format support |
+| **Vector DB** | FAISS (Facebook AI) | Local similarity search |
+| **LLM Runtime** | Ollama | Local model inference |
+| **Models** | TinyLlama 1.1B · Phi-3 3.8B | Answer generation |
 
 ---
 
@@ -165,87 +162,53 @@ intrabot/
 - Python **3.10+**
 - [Ollama](https://ollama.ai) installed and running
 - **8 GB RAM** minimum (16 GB recommended)
-- ~5 GB free disk space for models
+- ~5 GB free disk space
 
-### 1 — Clone the repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/intrabot.git
-cd intrabot
-```
-
-### 2 — Create virtual environment
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/Abhinxvsharma/INTRABOT---Domain-Specific-Chatbot.git
+cd INTRABOT---Domain-Specific-Chatbot
+
+# Create virtual environment
 python -m venv myenv
+myenv\Scripts\activate        # Windows
+source myenv/bin/activate     # macOS/Linux
 
-# Windows
-myenv\Scripts\activate
-
-# macOS / Linux
-source myenv/bin/activate
-```
-
-### 3 — Install dependencies
-
-```bash
+# Install dependencies
 pip install -r requirements.txt
+
+# Pull a local LLM
+ollama pull tinyllama          # Lightweight (recommended)
+ollama pull phi3               # Better quality
 ```
 
-### 4 — Pull a local LLM via Ollama
+### Run
 
 ```bash
-# Option A — Lightweight (recommended for most CPUs)
-ollama pull tinyllama
-
-# Option B — Better quality (needs more RAM)
-ollama pull phi3
-```
-
-### 5 — Start the application
-
-```bash
-# Terminal 1 — FastAPI backend
+# Terminal 1 — Backend
 uvicorn app.main:app --reload --port 8000
 
-# Terminal 2 — NiceGUI frontend
+# Terminal 2 — Frontend
 python app/ui/main_ui.py
 ```
 
-### 6 — Open in browser
-
-```
-http://localhost:8080
-```
-
-> 🎉 Upload a document, ask a question, get an accurate offline answer!
+Open `http://localhost:8080` in your browser 🎉
 
 ---
 
 ## ⚙️ Configuration
 
-Edit `app/utils/config.py` to customize behaviour:
-
 ```python
-# ── RAG Pipeline ─────────────────────────────────────────────────────
+# app/utils/config.py
+
 CHUNK_SIZE            = 300    # Characters per chunk
-CHUNK_OVERLAP         = 45     # 15% overlap — preserves context at boundaries
-MIN_CHUNK_SIZE        = 5      # Minimum words — short chunks are discarded
-
-# ── Embedding Model ───────────────────────────────────────────────────
-EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-#                  └── 384-dimensional vectors, CPU-optimized
-
-# ── LLM Settings ─────────────────────────────────────────────────────
-LLM_MODEL             = "tinyllama:latest"   # swap to "phi3" for better quality
-OLLAMA_BASE_URL       = "http://localhost:11434"
+CHUNK_OVERLAP         = 45     # 15% overlap
+LLM_MODEL             = "tinyllama:latest"   # or "phi3"
 TEMPERATURE           = 0.7
-MAX_TOKENS            = 300
-
-# ── Retrieval Settings ────────────────────────────────────────────────
-RETRIEVAL_TOP_K       = 3      # Chunks passed into the LLM prompt
-RERANK_TOP_K          = 5      # Candidates before re-ranking
-SIMILARITY_THRESHOLD  = 0.4    # Min similarity score — lower = more results
+RETRIEVAL_TOP_K       = 3      # Chunks passed to LLM
+SIMILARITY_THRESHOLD  = 0.4    # Min similarity score
 ```
 
 ---
@@ -253,183 +216,101 @@ SIMILARITY_THRESHOLD  = 0.4    # Min similarity score — lower = more results
 ## 🔌 API Reference
 
 ### Upload Documents
-
-```http
-POST /upload
-Content-Type: multipart/form-data
-```
-
 ```bash
 curl -X POST "http://localhost:8000/upload" \
-     -F "files=@HR_Policy_Manual.pdf" \
-     -F "files=@Leave_Rules.docx"
+     -F "files=@HR_Policy.pdf"
 ```
 
-**Response:**
-```json
-{ "message": "Successfully indexed 2 documents." }
-```
-
----
-
-### Query the Knowledge Base
-
-```http
-POST /query
-Content-Type: application/json
-```
-
+### Query
 ```bash
-# Search ALL documents
 curl -X POST "http://localhost:8000/query" \
   -H "Content-Type: application/json" \
-  -d '{"query": "How many sick leaves am I entitled to?", "document_name": null}'
-
-# Search ONE specific document
-curl -X POST "http://localhost:8000/query" \
-  -H "Content-Type: application/json" \
-  -d '{"query": "What is the notice period?", "document_name": "HR_Policy_Manual.pdf"}'
+  -d '{"query": "How many sick leaves do I get?", "document_name": null}'
 ```
 
-**Response:**
 ```json
 {
-  "answer": "Employees are entitled to 10 days of paid sick leave per calendar year. For absences longer than 3 days, a medical certificate is required...",
+  "answer": "Employees are entitled to 10 days of paid sick leave...",
   "sources": ["HR_Policy_Manual.pdf"]
 }
 ```
 
-**Fallback (when info not found):**
-```json
-{
-  "answer": "Information not found in documents",
-  "sources": []
-}
-```
-
 ---
 
-## 🚫 How Hallucination Prevention Works
-
-IntraBot uses a strict prompt template that **explicitly forbids fabrication**:
+## 🚫 Hallucination Prevention
 
 ```python
-# From rag_service.py
 template = """
 You are IntraBot, a local HR assistant.
-Use ONLY the following context to answer the user's question.
+Use ONLY the following context to answer.
 If the answer is NOT in the context, say EXACTLY:
 "Information not found in documents"
-Do NOT use external knowledge. Do NOT hallucinate.
+Do NOT hallucinate. Do NOT use external knowledge.
 
 Context: {context}
 Question: {question}
 Answer:"""
 ```
 
-**Three-layer protection system:**
-
-```
-Layer 1 → FAISS threshold (0.4)   — low-relevance chunks are discarded
-Layer 2 → No chunks found?        — return fallback, LLM is never called  
-Layer 3 → Strict prompt rule      — LLM forbidden from using outside knowledge
-```
-
----
-
-## 📊 Performance Metrics
-
-| Metric | Value |
-|---|---|
-| Embedding model size | ~90 MB |
-| Vector dimensions | 384 (all-MiniLM-L6-v2) |
-| Query latency (cached) | < 50ms |
-| Query latency (TinyLlama, CPU) | 5–15 seconds |
-| Query latency (Phi-3, CPU) | 15–40 seconds |
-| Max document size | ~500 pages per upload |
-| Chunk size | 300 characters with 45-char overlap |
-
 ---
 
 ## 🧪 Test Results
 
-| Test Case | Input | Expected | Result |
-|---|---|---|---|
-| TC-01 | Upload PDF | Successful ingestion | ✅ Pass |
-| TC-02 | Upload DOCX | Text extraction | ✅ Pass |
-| TC-03 | Semantic query | Relevant response | ✅ Pass |
-| TC-04 | Unknown question | Fallback returned | ✅ Pass |
-| TC-05 | Repeated query | Cached response | ✅ Pass |
-| TC-06 | Invalid file format | Validation error | ✅ Pass |
-| TC-07 | Offline (no internet) | Fully operational | ✅ Pass |
-| TC-08 | REST API call | JSON response | ✅ Pass |
+| Test Case | Result |
+|---|---|
+| PDF Upload | ✅ Pass |
+| DOCX Upload | ✅ Pass |
+| Semantic Query | ✅ Pass |
+| Unknown Question → Fallback | ✅ Pass |
+| Repeated Query → Cache | ✅ Pass |
+| Offline (no internet) | ✅ Pass |
+| REST API Query | ✅ Pass |
 
 ---
 
-## 🔮 Roadmap
+## 🔮 Future Enhancements
 
 - [ ] 🔐 Role-based multi-user authentication
-- [ ] 📷 OCR support for scanned PDFs and image-based documents
-- [ ] 🎙️ Voice input / text-to-speech output
+- [ ] 📷 OCR for scanned PDFs
+- [ ] 🎙️ Voice input / text-to-speech
 - [ ] 📊 Admin analytics dashboard
-- [ ] 🌍 Multilingual document and query support
-- [ ] 🦙 Llama-3 / Mistral-7B / DeepSeek model support
+- [ ] 🌍 Multilingual document support
+- [ ] 🦙 Llama-3 / Mistral-7B / DeepSeek support
 - [ ] 🏢 SharePoint / Confluence / HRMS integration
 - [ ] 📱 Mobile application
-- [ ] ⚡ GPU acceleration
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-```bash
-# Fork → Clone → Branch → Commit → Pull Request
-
-git checkout -b feature/your-feature-name
-git commit -m "feat: describe your change"
-git push origin feature/your-feature-name
-```
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** — see [LICENSE](LICENSE) for details.
 
 ---
 
 ## 👨‍💻 Author
 
-**Abhinav Sharma** &nbsp;|&nbsp; Roll No: 2206286
+<div align="center">
 
-B.Tech Computer Science Engineering  
-Rayat Bahra Institute of Engineering & Nano-Technology, Hoshiarpur  
-*Six Months Industrial Training Project — May 2026*
+<img src="https://github.com/Abhinxvsharma.png" width="120px" style="border-radius: 50%"/>
+
+### Abhinav Sharma
+
+*Passionate about building AI/ML solutions that make a real-world impact 🚀*
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abhinav-sharma-a73981382/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Abhinxvsharma)
+
+B.Tech CSE — Rayat Bahra Institute of Engineering & Nano-Technology, Hoshiarpur
+
+</div>
 
 ---
 
-## 📚 References
+## 📄 License
 
-1. Lewis, P. et al. — *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*, NeurIPS 2020
-2. [FastAPI Documentation](https://fastapi.tiangolo.com)
-3. [LangChain Documentation](https://docs.langchain.com)
-4. [FAISS — Facebook AI Research](https://faiss.ai)
-5. [Sentence Transformers — Reimers & Gurevych, EMNLP 2019](https://sbert.net)
-6. [Ollama Documentation](https://ollama.ai)
-7. [NiceGUI Documentation](https://nicegui.io)
-8. [Microsoft Phi-3](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct)
-9. [TinyLlama](https://github.com/jzhang38/TinyLlama)
-10. [Python Documentation](https://docs.python.org)
+This project is licensed under the **MIT License** — feel free to use, modify, and distribute.
 
 ---
 
 <div align="center">
 
-**⭐ If IntraBot helped you, please star this repo! ⭐**
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0f3460,50:16213e,100:1a1a2e&height=120&section=footer"/>
 
-<br/>
+**⭐ If IntraBot helped you, please give it a star! ⭐**
 
 *Built with ❤️ using Python · LangChain · FAISS · Ollama · FastAPI*
 
