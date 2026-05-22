@@ -16,7 +16,7 @@ EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 # LLM Configuration
 OLLAMA_BASE_URL = "http://localhost:11434"
-LLM_MODEL = "tinyllama:latest"
+LLM_MODEL = "phi3"
 TEMPERATURE = 0.7
 MAX_TOKENS = 300
 CONTEXT_WINDOW = 1000
