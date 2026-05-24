@@ -341,7 +341,7 @@ async def main_page():
             with ui.row().classes('items-center gap-3'):
                 ui.icon('bolt', color='blue-500').classes('text-3xl')
                 ui.label('IntraBot').classes('text-2xl font-bold tracking-tight text-white')
-            ui.button(icon='refresh', on_click=lambda: doc_list.refresh()).props('flat round color=white')
+                ui.button(icon='refresh', on_click=lambda: ui.run_javascript('location.reload()')).props('flat round color=white')
 
     with ui.left_drawer(value=True).classes('bg-slate-900/50 backdrop-blur-xl border-r border-slate-800 p-0').props('width=300'):
         with ui.column().classes('h-full w-full'):
@@ -357,7 +357,7 @@ async def main_page():
         
         # Input Area
         with ui.row().classes('w-full gap-4 items-center clay-card p-4 mb-4'):
-            input_field = ui.input(placeholder='Ask about HR policies...').classes('flex-grow text-white').props('borderless dark').on('keydown.enter', send_message)
+            input_field = ui.input(placeholder='Ask IntraBot anything about your documents...').classes('flex-grow text-white').props('borderless dark').on('keydown.enter', send_message)
             ui.button(icon='send', on_click=send_message).props('round color=blue size=lg shadow-lg').classes('hover:scale-110 transition-transform')
 
 # --- Startup Logic: Auto-Sync Index ---
